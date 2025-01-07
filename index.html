@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON in JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        body{
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            font-family: "Montserrat";
+        }
+        h1{
+            text-decoration: underline;
+            color: rgb(0, 0, 90);
+
+        }
+        label{
+            color: rgb(110, 21, 194);
+            font-size: 20px;
+
+        }
+        input{
+            font-size: 17px;
+            border-radius: 7px;
+            border: 2px solid rgb(85, 4, 161);
+            padding: 7px 7px 7px 7px;
+            width: 300px;
+
+        }
+        input:focus{
+            outline: none;
+
+        }
+
+        button{
+            font-size: 15px;
+            border: 2px solid black;
+            padding: 7px 7px 7px 7px;
+            border-radius: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+
+        }
+
+        button:hover{
+            background-color: rgb(0, 0, 90);
+            color: white;
+            transform: scale(1.2);
+
+        }
+
+  
+    </style>
+</head>
+<body>
+    <h1>Bio Data</h1>
+
+    <label>Name: <input type="text" id="name" placeholder="Enter Your Name"></label><br><br>
+    <label>Passion: <input type="text" id="passion" placeholder="Enter Your Passion"></label><br><br>
+    <label>Age: <input type="number" id="age" placeholder="Enter Your Age"></label><br><br>
+
+    <button onclick="showJSON()">Show Bio Data In JSON</button>
+
+    <pre id="output"></pre>
+
+    <script>
+        function showJSON(){
+            const name = document.getElementById("name").value;
+            const passion = document.getElementById("passion").value;
+            const age = document.getElementById("age").value;
+
+            const biodata = {
+                name: name,
+                passion: passion,
+                age: age
+            };
+
+            document.getElementById("output").textContent = JSON.stringify(biodata, null, 2);
+        }
+    </script>
+</body>
+</html>
